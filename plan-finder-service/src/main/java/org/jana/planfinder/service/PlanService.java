@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 public class PlanService {
 
     public PlanRes findPlans(PlanReq req) {
-        System.out.println("req = " + req);
         List<Plan> minPricePlans = PlanFinderUtil.findMinPrice(req.getAvailablePlans(), req.getRequirements());
         Collections.sort(minPricePlans);
         int minPrice = minPricePlans.stream().map(Plan::getAmount).reduce(0, Integer::sum);

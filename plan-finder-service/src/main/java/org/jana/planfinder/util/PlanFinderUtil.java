@@ -6,6 +6,34 @@ import java.util.*;
 
 public class PlanFinderUtil {
 
+    public static List<Plan> convertToAvailablePlans(List<String> lines) {
+        List<Plan> availablePlans = new ArrayList<>();
+        for (String line : lines) {
+            String[] splits = line.split(",");
+
+            String planName = splits[0].trim();
+            int amount = Integer.parseInt(splits[1].trim());
+
+            Set<String> features = new HashSet<>();
+            for (int i = 2; i < splits.length; i++) {
+                features.add(splits[i].trim());
+            }
+
+            Plan plan = new Plan(planName, amount, features);
+            availablePlans.add(plan);
+        }
+        return availablePlans;
+    }
+
+    public static List<String> convertToRequirements(String requirementStr) {
+        List<String> requirements = new ArrayList<>();
+        String[] splits = requirementStr.split(",");
+        for (String split : splits) {
+            requirements.add(split.trim());
+        }
+        return requirements;
+    }
+
     public static List<Plan> findMinPrice(List<Plan> plans, List<String> requirements) {
         plans = addPlan0(plans);
 
@@ -135,6 +163,7 @@ public class PlanFinderUtil {
         }
         return index;
     }
+
 
 }
 
