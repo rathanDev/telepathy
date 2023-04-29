@@ -47,6 +47,11 @@ Response:
 
 Docker 
 
+mvn clean install
+cp .\target\*.jar .\docker\
+dir .\docker\
+cd docker
+
 docker build -t plan-finder-image .
 docker run -p 8080:8080 plan-finder-image
 docker ps
@@ -57,3 +62,4 @@ docker push rathandev/plan-finder-image:latest
 
 docker pull rathandev/plan-finder-image:latest
 docker run -p 8080:8080 rathandev/plan-finder-image:latest
+
