@@ -9,8 +9,8 @@ Commands:
 # ---------------------------------- #
 ### Plan Finder ###
 
-Commands
-> cd plan-finer
+Commands:
+> cd plan-finder
 > mvn clean install
 
 To run as a webservice
