@@ -41,3 +41,19 @@ Response:
     ],
     "amount": 225
 }
+
+
+# -------------------------------------------------------------------------- #
+
+Docker 
+
+docker build -t plan-finder-image .
+docker run -p 8080:8080 plan-finder-image
+docker ps
+docker stop <PID>
+
+docker tag plan-finder-image rathandev/plan-finder-image:latest
+docker push rathandev/plan-finder-image:latest
+
+docker pull rathandev/plan-finder-image:latest
+docker run -p 8080:8080 rathandev/plan-finder-image:latest

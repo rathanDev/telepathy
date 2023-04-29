@@ -14,10 +14,10 @@ Commands:
 > mvn clean install
 
 To run as a webservice
-> java -jar target/plan-finder-service-0.0.1-SNAPSHOT.jar
+> java -jar target/plan-finder-0.0.1-SNAPSHOT.jar
 
 To run in terminal
-> java -jar target/plan-finder-service-0.0.1-SNAPSHOT.jar C:\PlanFinderInput1.txt email,voice,admin
+> java -jar target/plan-finder-0.0.1-SNAPSHOT.jar C:\PlanFinderInput1.txt email,voice,admin
 
 # ---------------------------------- #
 

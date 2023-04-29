@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.jana</groupId>
-	<artifactId>plan-finder-service</artifactId>
+	<artifactId>plan-finder</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>plan-finder</name>
 	<description>Find best set of plans</description>
