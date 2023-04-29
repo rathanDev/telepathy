@@ -1,5 +1,5 @@
 # ---------------------------------- #
-### Meeting Room Finder ###
+### Room Finder ###
 
 Commands:
 > cd room-finder
@@ -18,6 +18,10 @@ To run as a webservice
 
 To run in terminal
 > java -jar target/plan-finder-0.0.1-SNAPSHOT.jar C:\PlanFinderInput1.txt email,voice,admin
+
+To use docker image
+> docker pull rathandev/plan-finder-image:latest
+> docker run -p 8080:8080 rathandev/plan-finder-image:latest
 
 # ---------------------------------- #
 
