@@ -52,14 +52,14 @@ cp .\target\*.jar .\docker\
 dir .\docker\
 cd docker
 
-docker build -t plan-finder-image .
-docker run -p 8080:8080 plan-finder-image
+docker build -t plan-finder .
+docker run -p 8080:8080 plan-finder
 docker ps
 docker stop <PID>
 
-docker tag plan-finder-image rathandev/plan-finder-image:latest
-docker push rathandev/plan-finder-image:latest
+docker tag plan-finder rathandev/plan-finder:latest
+docker push rathandev/plan-finder:latest
 
-docker pull rathandev/plan-finder-image:latest
-docker run -p 8080:8080 rathandev/plan-finder-image:latest
+docker pull rathandev/plan-finder:latest
+docker run -p 8080:8080 rathandev/plan-finder:latest
 

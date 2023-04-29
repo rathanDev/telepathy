@@ -20,8 +20,11 @@ To run in terminal
 > java -jar target/plan-finder-0.0.1-SNAPSHOT.jar C:\PlanFinderInput1.txt email,voice,admin
 
 To use docker image
-> docker pull rathandev/plan-finder-image:latest
-> docker run -p 8080:8080 rathandev/plan-finder-image:latest
+> docker pull rathandev/plan-finder:latest
+> docker run -p 8080:8080 rathandev/plan-finder:latest
+
+To use Swagger
+http://localhost:8080/swagger-ui.html
 
 # ---------------------------------- #
 
