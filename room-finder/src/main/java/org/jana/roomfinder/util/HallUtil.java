@@ -1,14 +1,16 @@
-package org.jana.meetingorganizer;
+package org.jana.roomfinder.util;
+
+import org.jana.roomfinder.Slot;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class MeetingHallUtil {
+public class HallUtil {
 
     public static List<Slot> convertToSlots(List<String> lines) {
-        return lines.stream().map(MeetingHallUtil::convertToSlot).collect(Collectors.toList());
+        return lines.stream().map(HallUtil::convertToSlot).collect(Collectors.toList());
     }
 
     private static Slot convertToSlot(String str) {

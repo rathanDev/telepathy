@@ -1,4 +1,4 @@
-package org.jana.meetingorganizer;
+package org.jana.roomfinder.util;
 
 import java.io.IOException;
 import java.nio.file.Files;

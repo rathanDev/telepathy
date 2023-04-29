@@ -1,4 +1,4 @@
-package org.jana.meetingorganizer;
+package org.jana.roomfinder;
 
 public class Slot {
 

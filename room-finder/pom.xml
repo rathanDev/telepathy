@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.jana</groupId>
-	<artifactId>meeting-organizer</artifactId>
+	<artifactId>room-finder</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>meeting-organizer</name>
-	<description>Find number of meeting required</description>
+	<name>room-finder</name>
+	<description>Find number of meeting rooms required</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>

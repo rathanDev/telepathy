@@ -1,11 +1,14 @@
-package org.jana.meetingorganizer;
+package org.jana.roomfinder;
+
+import org.jana.roomfinder.util.FileReaderUtil;
+import org.jana.roomfinder.util.HallUtil;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MeetingOrganizerApplication {
+public class RoomFinderApp {
 
     public static final int OCCUPATION_SIZE = 24 * 60;
     public static List<Integer> hallIds = new ArrayList<>();
@@ -15,7 +18,7 @@ public class MeetingOrganizerApplication {
         String filePath = args[0];
         List<String> lines = FileReaderUtil.readFile(filePath);
 
-        List<Slot> slots = MeetingHallUtil.convertToSlots(lines);
+        List<Slot> slots = HallUtil.convertToSlots(lines);
 
         for (Slot slot : slots) {
             int hallId = findHall(slot);
