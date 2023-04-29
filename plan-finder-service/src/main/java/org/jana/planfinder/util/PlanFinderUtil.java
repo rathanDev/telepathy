@@ -3,28 +3,8 @@ package org.jana.planfinder.util;
 import org.jana.planfinder.data.Plan;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class PlanFinderUtil {
-
-    public static void main(String[] args) {
-        Plan plan1 = new Plan("PLAN1", 100, new HashSet<>(Arrays.asList("voice", "email")));
-        Plan plan2 = new Plan("PLAN2", 150, new HashSet<>(Arrays.asList("email", "database", "admin")));
-        Plan plan3 = new Plan("PLAN3", 125, new HashSet<>(Arrays.asList("voice", "admin")));
-        Plan plan4 = new Plan("PLAN4", 135, new HashSet<>(Arrays.asList("database", "admin")));
-        List<Plan> plans = Arrays.asList(plan1, plan2, plan3, plan4);
-
-        List<String> requirements = Arrays.asList("email", "voice", "admin");
-
-        List<Plan> minPricePlans = findMinPrice(plans, requirements);
-        Collections.sort(minPricePlans);
-        System.out.println("minPricePlans = " + minPricePlans);
-
-        int minPrice = minPricePlans.stream().map(Plan::getAmount).reduce(0, Integer::sum);
-        System.out.println("minPrice = " + minPrice);
-        List<String> planNames = minPricePlans.stream().map(Plan::getName).collect(Collectors.toList());
-        System.out.println("planNames = " + planNames);
-    }
 
     public static List<Plan> findMinPrice(List<Plan> plans, List<String> requirements) {
         plans = addPlan0(plans);
