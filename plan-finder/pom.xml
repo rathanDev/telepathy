@@ -11,7 +11,7 @@
 	<groupId>org.jana</groupId>
 	<artifactId>plan-finder-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>plan-finder-service</name>
+	<name>plan-finder</name>
 	<description>Find best set of plans</description>
 	<properties>
 		<java.version>11</java.version>

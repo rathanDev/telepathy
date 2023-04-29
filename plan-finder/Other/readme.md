@@ -1,3 +1,17 @@
+Commands
+
+> cd plan-finer
+> mvn clean install 
+
+To run as a webservice
+> java -jar target/plan-finder-service-0.0.1-SNAPSHOT.jar
+
+To run in terminal
+> java -jar target/plan-finder-service-0.0.1-SNAPSHOT.jar C:\example1.txt email,voice,admin
+
+
+
+# -------------------------------------------------------------------------- #
 
 Http Request
 

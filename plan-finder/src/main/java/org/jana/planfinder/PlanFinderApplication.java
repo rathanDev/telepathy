@@ -8,14 +8,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class PlanFinderApplication {
 
     public static void main(String[] args) {
-        handleCommandLineArgs(args);
+        if (args.length == 2) {
+            handleCommandLineArgs(args);
+            return;
+        }
         SpringApplication.run(PlanFinderApplication.class, args);
     }
 
     private static void handleCommandLineArgs(String[] args) {
-        if (args.length < 2) {
-            return;
-        }
         CommandLineUtil.findMinPricePlans(args);
     }
 
