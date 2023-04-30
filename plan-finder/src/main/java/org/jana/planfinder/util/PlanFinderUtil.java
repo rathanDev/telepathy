@@ -37,7 +37,7 @@ public class PlanFinderUtil {
     public static List<Plan> findMinPrice(List<Plan> plans, List<String> requirements) {
         plans = addPlan0(plans);
 
-        List<Set<String>> reqCombinations = generateAllPossibleCombinations(requirements);
+        List<Set<String>> reqCombinations = generateAllCombinations(requirements);
 
         int[][] dp = new int[plans.size()][reqCombinations.size()];
         boolean[][] selections = new boolean[plans.size()][reqCombinations.size()];
@@ -92,29 +92,33 @@ public class PlanFinderUtil {
         return modified;
     }
 
-    public static List<Set<String>> generateAllPossibleCombinations(List<String> input) {
-        List<List<String>> result = new ArrayList<>();
-        generateAllPossibleCombinationsRec(result, new ArrayList<>(), input, 0);
+    private static List<Set<String>> generateAllCombinations(List<String> requirements) {
+        List<Set<String>> list = new ArrayList<>();
+        generateAllCombinationsRec(list, requirements, new HashSet<>(), 0);
 
-        List<Set<String>> sets = new ArrayList<>();
-        for (int i = 0; i <= input.size(); i++) {
-            for (List<String> list : result) {
-                if (list.size() == i) {
-                    sets.add(new HashSet<>(list));
+        List<Set<String>> ordered = new ArrayList<>();
+        for (int i = 0; i <= requirements.size(); i++) {
+            for (Set<String> current : list) {
+                if (current.size() == i) {
+                    ordered.add(current);
                 }
             }
         }
-
-        return sets;
+        return ordered;
     }
 
-    private static void generateAllPossibleCombinationsRec(List<List<String>> result, List<String> tempList, List<String> input, int start) {
-        result.add(new ArrayList<>(tempList));
-        for (int i = start; i < input.size(); i++) {
-            tempList.add(input.get(i));
-            generateAllPossibleCombinationsRec(result, tempList, input, i + 1);
-            tempList.remove(tempList.size() - 1);
+    private static void generateAllCombinationsRec(List<Set<String>> list, List<String> wants, Set<String> set, int pos) {
+        if (pos == wants.size()) {
+            list.add(new HashSet<>(set));
+            return;
         }
+
+        Set<String> includedSet = new HashSet<>(set);
+        includedSet.add(wants.get(pos));
+        generateAllCombinationsRec(list, wants, includedSet, pos + 1);
+
+        //                                      excludedSet
+        generateAllCombinationsRec(list, wants, set, pos + 1);
     }
 
     private static boolean hasChanceToInclude(Set<String> features, Set<String> reqs) {
@@ -127,8 +131,6 @@ public class PlanFinderUtil {
     }
 
     private static int findIncludedAmount(Plan currentPlan, Set<String> reqs, int[][] dp, int i, List<Set<String>> reqCombinations) {
-        // int currentPlanAmount = currentPlan.getAmount();
-
         Set<String> remainingReqs = findRemainingReqs(currentPlan, reqs);
 
         int remainingAmount = 0;
