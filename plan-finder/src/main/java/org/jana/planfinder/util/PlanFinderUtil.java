@@ -1,10 +1,14 @@
 package org.jana.planfinder.util;
 
 import org.jana.planfinder.data.Plan;
+import org.jana.planfinder.service.PlanService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
 public class PlanFinderUtil {
+    private static final Logger log = LoggerFactory.getLogger(PlanService.class);
 
     public static List<Plan> convertToAvailablePlans(List<String> lines) {
         List<Plan> availablePlans = new ArrayList<>();
@@ -104,6 +108,7 @@ public class PlanFinderUtil {
                 }
             }
         }
+        log.info("GenerateAllCombinations {}", ordered);
         return ordered;
     }
 
